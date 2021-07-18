@@ -39,7 +39,7 @@ Pastel theme
 - Add ✘  ,  ❤︎ , ❌, and ⭕️ icons.
 
 ## Roadmap of Future Improvements
-- A New Game button which the new state should be deleted when clicked.
+- A New Game button which a new state should be deleted when clicked.
 - A version of Human vs. Machine.
 
 ## Installation
