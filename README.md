@@ -5,7 +5,7 @@ A 2-player Tic-Tac-Toe game with pastel style, built with React. 🍭
 ## Tasks:
 
 - Display the next player to play (Player X or Player O). This should show which player's turn it is.  It should be updated every time a player selects a square
-- Update the color of the mark based on the player's turn. "✘" should be red, and "O" should be green.
+- Update the color of the mark based on the player's turn. "X" should be red, and "O" should be green.
 
 At the end, the game should look like the following:
 
