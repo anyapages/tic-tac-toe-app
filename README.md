@@ -15,6 +15,7 @@ The text showing the player in turn (Player ❌'s turn) should be displayed belo
 ## Solution
 I use conditional logic via a ternary operator to set the `className` value. Learn more about the ternary operator here._ o Learn more about the [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator/) 
 
+<<<<<<< HEAD
 ```javaScript
 className={tik == "1" ? "red" : "green"}
       onClick={() => {
@@ -25,11 +26,15 @@ className={tik == "1" ? "red" : "green"}
     >
       <h1>{mark[tik]}</h1>
 ```
+=======
+_Hint: You'll want use conditional logic via a ternary operator to set the className value. Learn more about the ternary operator here._
+>>>>>>> facea27ff3e789fc6e9f90b349ae8b934a2253d1
 
 ## Usage
 <img src = 'Example.gif' width="580" height="360"> 
 
 [Live demo](#)
+<<<<<<< HEAD
 
 ## Features
 ✘ ❤︎ Pastel UI
@@ -62,3 +67,5 @@ I want to create a start new button and a Human VS. Machine version .
 
 ## License
 [MIT](https://github.com/anyapages/tic-tac-toe-app/blob/main/LICENSE) 
+=======
+>>>>>>> facea27ff3e789fc6e9f90b349ae8b934a2253d1
