@@ -65,5 +65,9 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React and React games, check out the [React documentation](https://reactjs.org/), [React Game Examples](https://react.rocks/tag/Game/).
 
+## Acknowledgement
+
+Topic: Refactoring Your Game, MIT xPro
+
 ## License
 [MIT](https://github.com/anyapages/tic-tac-toe-app/blob/main/LICENSE) 
