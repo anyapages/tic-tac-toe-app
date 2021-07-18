@@ -38,6 +38,10 @@ Pastel theme
 - Add soothing pink, blue, and green.
 - Add ✘  ,  ❤︎ , ❌, and ⭕️ icons.
 
+## Roadmap of Future Improvements
+- A New Game button which the new state should be deleted when clicked.
+- A version of Human vs. Machine.
+
 ## Installation
  `npx create-react-app tic-tac-toe-app`
 
@@ -60,10 +64,6 @@ The page will reload if you make edits. You will also see any errors in the cons
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React and React games, check out the [React documentation](https://reactjs.org/), [React Game Examples](https://react.rocks/tag/Game/).
-
-## Roadmap
-- A new game button
-- A verson of  Human vs. Machine 
 
 ## License
 [MIT](https://github.com/anyapages/tic-tac-toe-app/blob/main/LICENSE) 
