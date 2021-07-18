@@ -67,7 +67,7 @@ To learn React and React games, check out the [React documentation](https://reac
 
 ## Acknowledgement
 
-Topic: Refactoring Your Game, MIT xPro
+Topic: Refactoring Your Game, MIT xPro discussion forum.
 
 ## License
 [MIT](https://github.com/anyapages/tic-tac-toe-app/blob/main/LICENSE) 
