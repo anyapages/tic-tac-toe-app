@@ -18,3 +18,8 @@ The styles.css file includes the css classes you'll need to accomplish this task
     .white: Apply this class to the "O" player
 
 _Hint: You'll want use conditional logic via a ternary operator to set the className value. Learn more about the ternary operator here._
+
+## Usage
+<img src = 'Example.gif' width="580" height="360"> 
+
+[Live demo](#)
