@@ -30,7 +30,7 @@ className={tik == "1" ? "red" : "green"}
 ## Usage
 <img src = 'Example.gif' width="580" height="360"> 
 
-[Live demo](#)
+[Live demo](https://codesandbox.io/embed/2-player-tic-tac-toe-game-ufoop?fontsize=14&hidenavigation=1&theme=light&view=preview)
 
 ## Features
 Pastel UI
