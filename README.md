@@ -4,14 +4,14 @@ A 2-player Tic-Tac-Toe game with pastel style, built with React. 🍭
 
 ## Tasks:
 
-- Display the next player to play (Player ❌ or Player ⭕️). This should show which player's turn it is.  It should be updated every time a player selects a square
+- Display the next player to play (Player X or Player O). This should show which player's turn it is.  It should be updated every time a player selects a square
 - Update the color of the mark based on the player's turn. "✘" should be red, and "O" should be green.
 
 At the end, the game should look like the following:
 
 <img src = 'xo.png' width="500" height="440"> 
 
-The text showing the player in turn (Player ❌'s turn) should be displayed below the board and should be contained within an `<h1></h1>`  tag and have the id turn.
+The text showing the player in turn (Player X's turn) should be displayed below the board and should be contained within an `<h1></h1>`  tag and have the id turn.
 
 ## Solution
 I use conditional logic via a ternary operator to set the `className` value.  Learn more about the [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator/) 
@@ -36,7 +36,7 @@ className={tik == "1" ? "red" : "green"}
 Pastel UI
 
 - Add soothing pink, blue, and green.
-- Add Player ✘  and  ❤︎ icon.
+- Add Player ✘  ,  ❤︎  icon, ❌, and ⭕️.
 
 ## Installation
  `npx create-react-app tic-tac-toe-app`
