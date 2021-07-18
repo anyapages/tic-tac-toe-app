@@ -9,7 +9,7 @@ A 2-player Tic-Tac-Toe game with pastel style, built with React.
 
 At the end, the game should look like the following:
 
-<img src = 'xo.png' width="580" height="360"> 
+<img src = 'xo.png' width="500" height="440"> 
 
 The text showing the player in turn (Player ❌'s turn) should be displayed below the board and should be contained within an `<h1></h1>`  tag and have the id turn.
 
@@ -36,15 +36,14 @@ className={tik == "1" ? "red" : "green"}
 ✘ ❤︎ Pastel UI
 
 ## Installation
-### `npx create-react-app tic-tac-toe-app`
+ `npx create-react-app tic-tac-toe-app`
 
-### `cd tic-tac-toe-app`
+ `cd tic-tac-toe-app`
 
-### `npm start`
+ `npm start`
 
    ### Note:
-
-    npx on the first line is not a typo — it is a package runner tool that comes with npm 5.2+.
+   npx on the first line is not a typo — it is a package runner tool that comes with npm 5.2+.
 
 ### `npm start`
 
@@ -60,7 +59,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React and React games, check out the [React documentation](https://reactjs.org/), [React Game Examples](https://react.rocks/tag/Game/).
 
 ## Roadmap
-I want to create a start new button and a Human VS. Machine version .
+I want to create a start new button and a Human VS. Machine version.
 
 ## License
 [MIT](https://github.com/anyapages/tic-tac-toe-app/blob/main/LICENSE) 
