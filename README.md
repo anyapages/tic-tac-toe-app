@@ -36,7 +36,7 @@ className={tik == "1" ? "red" : "green"}
 Pastel UI
 
 - Add soothing pink, blue, and green.
-- Add Player ✘  ,  ❤︎  icon, ❌, and ⭕️.
+- Add ✘  ,  ❤︎ , ❌, and ⭕️ icons.
 
 ## Installation
  `npx create-react-app tic-tac-toe-app`
