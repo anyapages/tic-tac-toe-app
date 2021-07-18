@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-
 const Board = () => {
   // 1st player is X ie 1
   // State keeps track of next player and gameState
@@ -13,7 +12,7 @@ const Board = () => {
   // Use conditional logic to set a variable to either 'Player O' or  'Player X'
   let playerTurn = `Player ${player == "0" ? "⭕️" : " ❌"} 's turn`;
 
-  console.log(`Yay, we hav a winner ${status}`);
+  console.log(`Yay, we have a winner: ${status}`);
 
   const takeTurn = (id) => {
     setGameState([...gameState, { id: id, player: player }]);
