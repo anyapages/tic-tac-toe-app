@@ -126,7 +126,7 @@ const checkForWinner = (gameState) => {
   }
   if (win0.length > 0) return " Player ⭕️ ";
   else if (winX.length > 0) return " Player ❌ ";
-  return "No winner Yet";
+  return "No Winner Yet";
 };
 // check if subset is in the set
 function isSuperset(set, subset) {
