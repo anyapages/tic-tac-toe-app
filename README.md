@@ -28,9 +28,9 @@ className={tik == "1" ? "red" : "green"}
 ```
 
 ## Usage
-<img src = 'Example.gif' width="580" height="360"> 
+<img src = 'Example.gif' width="600" height="360"> 
 
-[Live demo](https://codesandbox.io/embed/2-player-tic-tac-toe-game-ufoop?fontsize=14&hidenavigation=1&theme=light&view=preview)
+[Live demo](https://anyapages.com/tic-tac-toe-app/)
 
 ## Features
 Pastel theme
