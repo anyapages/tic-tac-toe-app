@@ -1,148 +1,217 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import axios from "axios";
+import { Card, Accordion, Container, Button, Row, Col, Image } from "react-bootstrap";
 
-const Board = () => {
-  // 1st player is X ie 1
-  // State keeps track of next player and gameState
-  const [player, setPlayer] = React.useState(1);
-  const [gameState, setGameState] = React.useState([]);
-  let status = `The winner is ${checkForWinner(gameState)}`;
-
-  // Use conditional logic to set a variable to either 'Player O' or  'Player X'
-  let playerTurn = `Player ${player == "0" ? "⭕️" : " ❌"} 's turn`;
-
-  console.log(`Yay, we have a winner: ${status}`);
-
-  const takeTurn = (id) => {
-    setGameState([...gameState, { id: id, player: player }]);
-    setPlayer((player + 1) % 2); // get next player
-    return player;
-  };
-  function renderSquare(i) {
-    // use properties to pass callback function takeTurn to Child
-    return <Square takeTurn={takeTurn} id={i}></Square>;
-  }
-
-  return (
-    <div className="game-board">
-      <div className="game-table">
-        {renderSquare(0)}
-        {renderSquare(1)}
-        {renderSquare(2)}
-      </div>
-      <div className="game-table">
-        {renderSquare(3)}
-        {renderSquare(4)}
-        {renderSquare(5)}
-      </div>
-      <div className="game-table">
-        {renderSquare(6)}
-        {renderSquare(7)}
-        {renderSquare(8)}
-      </div>
-      <div id="info">
-        <h1 id="turn">{playerTurn}</h1>
-        <h1>{status}</h1>
-      </div>
-    </div>
-  );
-};
-
-const Square = ({ takeTurn, id }) => {
-  const mark = ["O", "✘", "♡"];
-  // id is the square's number
-  // filled tells you if square has been filled
-  // tik tells you symbol in square (same as player)
-  // You call takeTurn to tell Parent that the square has been filled
-  const [filled, setFilled] = React.useState(false);
-  const [tik, setTik] = React.useState(2);
-
-  return (
-    <button
-      // update the return statement to add css classes
-      className={tik == "1" ? "red" : "green"}
-      onClick={() => {
-        setTik(takeTurn(id));
-        setFilled(true);
-        console.log(`Square: ${id} filled by player : ${tik}`);
-      }}
-    >
-      <h1>{mark[tik]}</h1>
-    </button>
-  );
-};
-
-const Game = () => {
-  return (
-    <div className="game">
-      <Board></Board>
-    </div>
-  );
-};
-
-// Checking for Winner takes a bit of work
-// Use JavaScript Sets to check players choices
-// against winning combinations
-// Online there is more compact version but I prefer this one :)
-
-const win = [
-  // rows
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  // cols
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  // diagonal
-  [0, 4, 8],
-  [2, 4, 6]
+// simulate getting products from DataBase
+const products = [
+  { name: "Apples:", country: "Italy", cost: 3, instock: 10, image: "images/01.png"},
+  { name: "Oranges:", country: "Spain", cost: 4, instock: 3, image: "images/02.png" },
+  { name: "Beans:", country: "USA", cost: 2, instock: 5, image: "images/03.png"},
+  { name: "Cabbage:", country: "USA", cost: 1, instock: 8, image: "images/04.png"},
 ];
 
-const checkPlayerTurn = (gameState) => {
-  return gameState.player;
+const Products = (props) => {
+  const [items, setItems] = React.useState(products);
+  const [cart, setCart] = React.useState([]);
+  const [total, setTotal] = React.useState(0);
+
+const useDataApi = (initialUrl, initialData) => {
+
+  const [url, setUrl] = useState(initialUrl);
+  const [state, dispatch] = useReducer(dataFetchReducer, {
+    isLoading: false,
+    isError: false,
+    data: initialData,
+  });
+
+  console.log(`useDataApi called`);
+  useEffect(() => {
+    console.log("useEffect Called");
+    let didCancel = false;
+    const fetchData = async () => {
+      dispatch({ type: "FETCH_INIT" });
+      try {
+        const result = await axios(url);
+        console.log("FETCH FROM URl");
+        if (!didCancel) {
+          dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+        }
+      } catch (error) {
+        if (!didCancel) {
+          dispatch({ type: "FETCH_FAILURE" });
+        }
+      }
+    };
+    fetchData();
+    return () => {
+      didCancel = true;
+    };
+  }, [url]);
+  return [state, setUrl];
 };
 
-const checkForWinner = (gameState) => {
-  // get array of box id's
-  // can't be a winner in less than 5 turns
-  if (gameState.length < 5) return "No Winner Yet";
-  let p0 = gameState.filter((item) => {
-    if (item.player == 0) return item;
-  });
-  p0 = p0.map((item) => item.id);
-  let px = gameState.filter((item) => {
-    if (item.player == 1) return item;
-  });
-  px = px.map((item) => item.id);
-  if (p0 != null && px != null) {
-    var win0 = win.filter((item) => {
-      return isSuperset(new Set(p0), new Set(item));
-    });
-    var winX = win.filter((item) => {
-      return isSuperset(new Set(px), new Set(item));
-    });
+
+const dataFetchReducer = (state, action) => {
+  switch (action.type) {
+    case "FETCH_INIT":
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+      };
+    case "FETCH_SUCCESS":
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        data: action.payload,
+      };
+    case "FETCH_FAILURE":
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+      };
+    default:
+      throw new Error();
   }
-  if (win0.length > 0) return " Player ⭕️ ";
-  else if (winX.length > 0) return " Player ❌ ";
-  return "No Winner Yet";
 };
-// check if subset is in the set
-function isSuperset(set, subset) {
-  for (let elem of subset) {
-    if (!set.has(elem)) {
-      return false;
+
+  //  Fetch Data
+  const { Fragment, useState, useEffect, useReducer } = React;
+  const [query, setQuery] = useState("http://localhost:1337/products");
+  const [{ data }, doFetch] = useDataApi(
+    "http://localhost:1337/products",
+    {
+      data: [],
     }
-  }
-  return true;
-}
+  );
+  console.log(`Rendering Products ${JSON.stringify(data)}`);
+
+  const addToCart = (e) => {
+    let name = e.target.name;
+    let item = items.filter((item) => item.name === name);
+    console.log(`add to Cart ${JSON.stringify(item)}`);
+
+    let instock;
+    const newItems = [];
+    for (const item of items) {
+      if (item.name === name) {
+        item.instock = item.instock - 1;
+        instock = item.instock;
+      }
+      newItems.push(item);
+    }
+
+    if (instock >= 0) {
+      setItems(newItems);
+      setCart([...cart, ...item]);
+    }
+  };
+
+  const deleteCartItem = (index) => {
+    let itemToReturn = cart.filter((item,i) => index === i);
+    console.log(itemToReturn);
+    for (const item of items) {
+      if(item.name === itemToReturn[0].name){
+        item.instock = item.instock + 1;
+      }
+    }
+    let newCart = cart.filter((item, i) => index !== i);
+    setCart(newCart);
+  };
+
+  let list = items.map((item, index) => {
+    
+    return (
+      <li key={index.id}>
+        <Image src={item.image} width={120} ></Image>
+        <p><Button variant="light" size="large">
+          {item.name}  {item.country}  | Stock = {item.instock} | $ {item.cost}.00
+        </Button></p>
+        <p style={{marginTop: 20}}><input variant="success" name={item.name} type="submit" onClick={addToCart}></input></p>
+      </li>
+    );
+  });
+
+  let cartList = cart.map((item, index) => {
+    return (
+      <Card key={index}>
+        <Card.Header>
+          <Accordion.Toggle as={Button} variant="link" eventKey={1 + index}>
+            {item.name} {item.image}
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse onClick={() => deleteCartItem(index)} eventKey={1 + index} >
+          <Card.Body>
+            $ {item.cost} from {item.country}
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
+    );
+  })
+
+  let finalList = () => {
+    let total = checkOut();
+    let final = cart.map((item, index) => {
+      return (
+        <div key={index} index={index}>
+          {item.name} 
+        </div>
+      );
+    });
+    return { final, total };
+  };
+
+  const checkOut = () => {
+    let costs = cart.map((item) => item.cost);
+    const reducer = (accum, current) => accum + current;
+    let newTotal = costs.reduce(reducer, 0);
+    console.log(`total updated to ${newTotal}`);
+    cart.map((item, index) => deleteCartItem(index));
+    return newTotal;
+  };
+
+  const restockProducts = (url) => {
+    doFetch(url);
+    let newItems = data.map((item) => {
+      let { name, country, cost, instock } = item;
+      return { name, country, cost, instock};
+    });
+    setItems([...items, ...newItems]);
+  };
+
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <h1>Products</h1>
+          <ul style={{ listStyleType: "none" }}>{list}</ul>
+        </Col>
+        <Col>
+          <h1>Order Summary</h1>
+          <Accordion>{cartList}</Accordion>
+        </Col>
+        <Col>
+          <h1>Check Out</h1>
+          <Button variant="info" onClick={checkOut}>Total: $ {finalList().total}</Button>
+          <div> {finalList().total > 0 && finalList().final} </div>
+        </Col>
+      </Row>
+      <Row>
+      <form onSubmit={(event) => {
+          restockProducts(`http://localhost:1337/${query}`);
+          console.log(`Restock called on ${query}`);
+          event.preventDefault(); }} >
+          <input type="text" value={query} onChange={(event) => setQuery(event.target.value)} />
+          <button type="submit">Restock</button>
+        </form>
+      </Row>
+    </Container>
+  );
+};
 
 // ========================================
-
-ReactDOM.render(<Game />, document.getElementById('root'));
-
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<Board />, rootElement);
-
+ReactDOM.render(<Products />, document.getElementById("root"));

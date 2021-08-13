@@ -1,52 +1,26 @@
+input {
+    background-color: rgb(11, 12, 11);
+    border: 2px solid rgb(13, 14, 13);
+    color: whitesmoke;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+li {
+    justify-content: 'space-between';
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
 button {
-  border-radius: 6px;
-  border: 2px solid transparent;
-  box-shadow: 0 4px rgba(0, 0, 0, 0.2);
-  background-color: mistyrose;
-  margin-left: 10px;
-  width: 90px;
-  height: 90px;
-  font-size: 17px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.game-board {
-  margin: auto;
-  background-color: lightsteelblue;
-  width: 340px;
-  max-width: 340px;
-  height: 480px;
-  text-align: center;
-  border-radius: 6px;
-  border: 3px solid transparent;
-  box-shadow: 0 4px rgba(0, 0, 0, 0.2);
-}
-
-.game-table {
-  font-weight: bold;
-  font-size: 10px;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.red {
-  color: tomato;
-}
-
-.green {
-  color: lightseagreen;
-}
-
-div {
-  color: #666666;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  margin-top: 28px;
-}
-
-body {
-  background-color: whitesmoke;
-  margin: 0 ;
+    background-color: rgb(113, 120, 182);
+    border: 2px solid rgb(0, 30, 128);
+    color: whitesmoke;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 60px;
+    justify-content: 'space-between';
 }
