@@ -28,9 +28,9 @@ className={tik == "1" ? "red" : "green"}
 ```
 
 ## Usage
-<img src = 'Example.gif' width="580" height="360"> 
 
-[Live demo](#)
+[Live demo](http://anyapages.com/tic-tac-toe-app)
+
 
 ## Features
 Pastel UI
