@@ -1,20 +1,11 @@
-<<<<<<< HEAD
-# Restock Exercise
-=======
 # Tic-Tac-Toe App
 
-A 2-player pastel Tic-Tac-Toe game, build with React. 🍭
->>>>>>> f90725b2fe15c18e3fa50868e701f73c6c85b36e
+A 2-player Tic-Tac-Toe game with pastel style, built with React. 🍭
 
-A restock function  a Shopping-Cart exercise.
 ## Tasks:
 
-<<<<<<< HEAD
-- Implement the restock feature when a user clicks the “Restock” button, a call is made to the Strapi back end specified in the input field.
-- The result of this call should be updated on the list of products.
-=======
 - Display the next player to play (Player X or Player O). This should show which player's turn it is.  It should be updated every time a player selects a square
-- Update the color of the mark based on the player's turn. "X" should be red, and "O" should be green.
+- Update the color of the mark based on the player's turn. "✘" should be red, and "O" should be green.
 
 At the end, the game should look like the following:
 
@@ -22,37 +13,30 @@ At the end, the game should look like the following:
 
 The text showing the player in turn (Player X's turn) should be displayed below the board and should be contained within an `<h1></h1>`  tag and have the id turn.
 
->>>>>>> f90725b2fe15c18e3fa50868e701f73c6c85b36e
 ## Solution
-I use `doFetch`(url) function on `restockProducts` value to make a call to the API and use `setItem` to update the existing items as shown below;
+I use conditional logic via a ternary operator to set the `className` value.  Learn more about the [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator/) 
+
 ```javaScript
-const restockProducts = (url) => {
-    doFetch(url);
-    let newItems = data.map((item) => {
-      let { name, country, cost, instock } = item;
-      return { name, country, cost, instock };
-    });
-    setItems([...items, ...newItems]);
-  };
+className={tik == "1" ? "red" : "green"}
+      onClick={() => {
+        setTik(takeTurn(id));
+        setFilled(true);
+        console.log(`Square: ${id} filled by player : ${tik}`);
+      }}
+    >
+      <h1>{mark[tik]}</h1>
 ```
+
 ## Usage
-<<<<<<< HEAD
+<img src = 'Example.gif' width="580" height="360"> 
 
-<img src = 'exampme.gif' width="500" height="440"> 
-=======
-<img src = 'Example.gif' width="600" height="360"> 
-
-[Live demo](https://anyapages.com/tic-tac-toe-app/)
+[Live demo](#)
 
 ## Features
-Pastel theme
+Pastel UI
 
 - Add soothing pink, blue, and green.
-- Add ✘  ,  ❤︎ , ❌, and ⭕️ icons.
-
-## Roadmap of Future Improvements
-- A New Game button which a new state should be deleted when clicked.
-- A version of Human vs. Machine.
+- Add Player ✘  ,  ❤︎  icon, ❌, and ⭕️.
 
 ## Installation
  `npx create-react-app tic-tac-toe-app`
@@ -77,10 +61,9 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React and React games, check out the [React documentation](https://reactjs.org/), [React Game Examples](https://react.rocks/tag/Game/).
 
-## Acknowledgement
-
-Topic: Refactoring Your Game, MIT xPro discussion forum.
->>>>>>> f90725b2fe15c18e3fa50868e701f73c6c85b36e
+## Roadmap
+- A new game button
+- A verson of  Human vs. Machine 
 
 ## License
-[MIT](https://github.com/anyapages/shopping-cart-exercise/blob/main/LICENSE) 
+[MIT](https://github.com/anyapages/tic-tac-toe-app/blob/main/LICENSE) 
