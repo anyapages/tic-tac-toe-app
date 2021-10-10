@@ -1,6 +1,6 @@
 # Tic-Tac-Toe App
 
-A 2-player Tic-Tac-Toe game with pastel style, built with React. 🍭
+A sample 2-player Tic-Tac-Toe game with pastel style, build with React. 🍭
 
 ## Tasks:
 
